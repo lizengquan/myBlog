@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+  <title>博客首页</title>
+
+  <!-- Bootstrap -->
+  <link href="/css/bootstrap.min.css" rel="stylesheet">
+  
+  <!-- HTML5 shim 和 Respond.js 是为了让 IE8 支持 HTML5 元素和媒体查询（media queries）功能 -->
+  <!-- 警告：通过 file:// 协议（就是直接将 html 页面拖拽到浏览器中）访问页面时 Respond.js 不起作用 -->
+  <!--[if lt IE 9]>
+    <script src="/js/html5shiv.min.js"></script>
+    <script src="/js/respond.min.js"></script>
+    <![endif]-->
+    
+    <!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
+    <script src="/js/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="/css/main/index.css">
+</head>
+
+<body>
+  <!-- 巨幕 -->
+  <div class="jumbotron clearfix">
+    <h1 class="text-center">个人博客</h1>
+    <p><a class="btn btn-primary pull-right" href="#" role="button">Learn more</a></p>
+  </div>
+  <!-- 巨幕 end -->
+  <div class="height50"></div>
+  <!-- 导航条 -->
+  <%- include("nav.html") -%>
+  <!-- 导航条 end -->
+  <div class="container">
+    <div class="row">
+      <!-- 左边数据列表 -->
+      <div class="col-md-9">
+        <div id="list-data">
+        <% for(var i = 0; i < contents.length; i++) { %>
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4>
+              <%= contents[i].title%><small class="pull-right">
+                <%= contents[i].addTime%></small></h4>
+          </div>
+          <div class="panel-body">
+            <!-- markdown插件所以需要考虑标签转义 ejs解决方案 <%- %> -->
+            <%- contents[i].description %>
+            <a class="pull-right" href="/detail/?contentId=<%= contents[i].id %>">阅读更多...</a>
+          </div>
+        </div>
+        <% } %>
+      </div>
+        <nav aria-label="Page navigation">
+          <ul class="pagination pagination-lg">
+            <% for(var i = 1; i <= count; i++) { %>
+              <!-- <% if (i == 1) { %>
+                <li>
+                  <a href="javascript:;" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                  </a>
+                </li>
+              <% } %> -->
+              <li><a href="javascript:;"><%= i %></a></li>
+              <!-- <% if (i == count) { %>
+                <li>
+                    <a href="javascript:;" aria-label="Next">
+                      <span aria-hidden="true">&raquo;</span>
+                    </a>
+                  </li>
+              <% } %> -->
+            <% } %>
+          </ul>
+        </nav>
+      </div>
+      <!-- <div class="col-md-1"></div> -->
+      <!-- 右边登陆 -->
+      <%- include("login.html") -%>
+      <!-- 右边登陆 end -->
+    </div>
+  </div>
+  <%- include("footer.html") -%>
+
+  <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
+  <script src="/js/bootstrap.min.js"></script>
+  <script src="/js/main/index.js"></script>
+  <script>
+    $(function () {
+      $(".btn-form").eq(1).parent().hide()
+      $(".btn-form").click(function () {
+        $(this).parent().hide().siblings("form").show();
+      })
+    })
+  </script>
+</body>
+
+</html>

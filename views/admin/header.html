@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="renderer" content="webkit">
+
+    <title> hAdmin- 主页</title>
+
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+
+    <!--[if lt IE 9]>
+    <meta http-equiv="refresh" content="0;ie.html" />
+    <![endif]-->
+
+    <link rel="shortcut icon" href="/favicon.ico"> 
+    <link href="/css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
+    <link href="/css/font-awesome.min.css?v=4.4.0" rel="stylesheet">
+    <link href="/css/animate.css" rel="stylesheet">
+    <link href="/css/style.css?v=4.1.0" rel="stylesheet">
+    <!-- 第三方插件 -->
+    <!-- markdown编辑器 -->
+    <link rel="stylesheet" type="text/css" href="/css/plugins/markdown/bootstrap-markdown.min.css" />
+    <!-- 富编辑器 -->
+    <link href="/css/plugins/summernote/summernote.css" rel="stylesheet">
+    <link href="/css/plugins/summernote/summernote-bs3.css" rel="stylesheet">
+    <style>
+        .nav li .nav-active {
+            background-color: #131e26;
+            color: white;
+        }
+    </style>
+</head>
+
+<body class="fixed-sidebar full-height-layout gray-bg" style="overflow:hidden"></body>
+  <div id="wrapper">
+    <!--左侧导航开始-->
+    <%- include('navbar.html') -%>
+    <!--左侧导航结束-->
+    <!--右侧部分开始-->
+    <div id="page-wrapper" class="gray-bg dashbard-1">
+        <!-- 顶部导航 -->
+        <%- include('topNavbar.html') -%>
+        <!-- 顶部导航 end -->
+        <div class="row J_mainContent" id="content-main">
+            <!-- 页面正常滚动 -->
+            <div class="full-height-scroll">
